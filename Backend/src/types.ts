@@ -1,3 +1,29 @@
+import { Request, Response } from "express";
+import { InputType, Field } from "type-graphql";
+
+export type MyContext = {
+  req: Request;
+  res: Response;
+};
+
+@InputType()
+export class LoginInput {
+  @Field()
+  handleOrEmail: string;
+  @Field()
+  password: string;
+}
+
+@InputType()
+export class RegisterInput {
+  @Field()
+  email: string;
+  @Field()
+  password: string;
+  @Field()
+  codeforcesHandle: string;
+}
+
 export type CFProblem = {
   contestId?: number;
 };
