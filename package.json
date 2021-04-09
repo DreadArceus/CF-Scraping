@@ -1,0 +1,29 @@
+{
+  "name": "cf-scraping",
+  "version": "1.0.0",
+  "description": "Trying to scrape CF for some interesting problem collections (like someone's completed problems)",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreadArceus/CF-Scraping.git"
+  },
+  "author": "DreadArceus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DreadArceus/CF-Scraping/issues"
+  },
+  "homepage": "https://github.com/DreadArceus/CF-Scraping#readme",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.28",
+    "@types/node": "^14.14.37",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.6",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.2.4"
+  }
+}
