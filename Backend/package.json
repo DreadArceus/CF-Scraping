@@ -1,15 +1,11 @@
 {
-  "name": "cf-scraping",
+  "name": "cf-scraping-backend",
   "version": "1.0.0",
   "description": "Trying to scrape CF for some interesting problem collections (like someone's completed problems)",
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DreadArceus/CF-Scraping.git"
   },
   "author": "DreadArceus",
   "license": "ISC",
