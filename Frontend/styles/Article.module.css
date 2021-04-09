@@ -1,0 +1,343 @@
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 2000px;
+    margin-top: 3rem;
+  }
+  .stalk{
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: .2rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    background:inherit;
+    border-radius: 5px;
+    color: #89bcf7;
+    border-color: inherit;
+  }
+  .option{
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: .2rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    background: #202a2f;
+    border-radius: 5px;
+    color:wheat;
+    
+  }
+  
+  .card1300 {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #89bcf7;
+    border-color: #8356ec;
+  }
+  .card1500 {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #89f7cd;
+    border-color: #8dec56;
+  }
+  .card1700 {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #f7f589;
+    border-color: #ecb056;
+  }
+  .card2000 {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #f8a27b;
+    border-color: #f16717;
+  }
+  .card2400 {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #c90505;
+    border-color: #a50404;
+  }
+
+  .card:nth-child(5n + 1) {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #89bcf7;
+    border-color: #8356ec;
+    
+  }
+  .card:nth-child(5n + 2) {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #89f7cd;
+    border-color: #8dec56;
+  }
+  .card:nth-child(5n + 3) {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #f7f589;
+    border-color: #ecb056;
+  }
+  .card:nth-child(5n + 4) {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #f8a27b;
+    border-color: #f16717;
+  }
+  .card:nth-child(5n) {
+    margin: 1rem;
+    flex-basis: 20%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    color: #c90505;
+    border-color: #a50404;
+  }
+
+
+
+
+  .state{
+    background: green;
+  }
+  .rating{
+    
+    padding: 5px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+  }
+  .tags{
+    display: flex;
+    justify-content:space-between;
+    padding: .2rem;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    background: rgba(143, 142, 142, 0.336);
+    border-radius: 10px;
+  }
+  .tag{
+    display:flex-box;
+    width:fit-content;
+    padding:3px;
+    border-radius: 10px;
+    /* border: 1px solid #fae8b7; */
+
+    margin:5px;
+  }
+  /* .card:hover,
+  .card:focus,
+  .card1300:hover {
+    color: #89bcf7;
+    border-color: #8356ec;
+  }
+  .card1500:hover {
+    color: #89f7cd;
+    border-color: #8dec56;
+  }
+  .card1700:hover {
+    
+  }
+  .card2000:hover {
+    color: #f7a389;
+    border-color: #f16717;
+  }
+  
+  .card2400:hover {
+    color: #c90505;
+    border-color: #a50404;
+  } */
+
+
+  .card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  
+  .logo {
+    height: 1em;
+  }
+  
+  @media (max-width: 600px) {
+    .grid {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+/* 
+  .body{
+    background: rgb(82, 170, 228);
+  } */
+  .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 400px;
+    min-height: 500px;
+    background: #161a2b;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding: 32px
+  }
+  
+  .todo-button {
+    padding: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(
+      90deg,
+      rgba(93, 12, 255, 1) 0%,
+      rgba(155, 0, 250, 1) 100%
+    );
+    color: #fff;
+    text-transform: capitalize;
+  }
+  .todo-input {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #5d0cff;
+    outline: none;
+    width: 520px;
+    background: transparent;
+    color: #fff;
+    margin: 20px;
+  }
+  .todo-input option {
+      background: #161a2b;;
+  }
+ 
+
+  .delete-icon {
+    margin-right: 5px;
+    color: #fff;
+  }
+  
+  .edit-icon {
+    color: #fff;
+  }
+  .icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+ .ul:not(hover){
+   height: 15px;
+   font-size: 0px;
+   background: rgb(46, 70, 80);
+   border-radius: 15px;
+   padding: 15px;
+   transition: .3s;
+ }
+ .ul:hover{
+   display:flex;
+   flex-direction: column;
+   height: fit-content;
+   font-size: 20px;
+   padding: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   transition: .3s;
+ }
+ .target{
+  display:flex;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  color: inherit;
+  margin:3px;
+ 
+ }
+ .name{
+display: flex;
+width:45%;
+justify-content: left;
+
+ }
+ .result{
+  display: flex;
+  width:45%;
+  justify-content: right;
+ }

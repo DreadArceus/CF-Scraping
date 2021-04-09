@@ -1,0 +1,86 @@
+.body{
+    background: rgb(82, 170, 228);
+  }
+  .h1{
+    color: rgb(197, 0, 0);
+    font-size: 30px;
+    margin: 5px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    
+  }
+  .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 720px;
+    min-height: 400px;
+    background: #161a2b;
+    border: 2px solid rgb(148, 44, 44);
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: 5px 5px 10px rgb(170, 4, 4);
+  }
+  
+  .todobutton:not(hover) {
+    padding: 16px;
+    height:50px;
+    margin: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: #161a2b;
+    border: 1px solid rgb(182, 3, 3);
+    color: #fff;
+    text-transform: capitalize;
+    transition:1s;
+  }
+
+  .todobutton:hover {
+    padding: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(
+      90deg,
+      rgb(134, 5, 5) 0%,
+      rgb(204, 5, 71) 100%
+    );
+    color: #fff;
+    text-transform: capitalize;
+    transition: 1s;
+  }
+
+  .todoinput {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #b40303;
+    outline: none;
+    width: 520px;
+    background: transparent;
+    color: #fff;
+    margin: 20px;
+  }
+  .todoinput option {
+      background: #161a2b;;
+  }
+
+  .delete-icon {
+    margin-right: 5px;
+    color: #fff;
+  }
+  
+  .edit-icon {
+    color: #fff;
+  }
+  .icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
