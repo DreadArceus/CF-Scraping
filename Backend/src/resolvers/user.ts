@@ -1,5 +1,11 @@
 import { User } from "../entities/User";
-import { CFSubmission, LoginInput, MyContext, RegisterInput } from "../types";
+import {
+  CFSubmission,
+  LoginInput,
+  MyContext,
+  ProblemData,
+  RegisterInput,
+} from "../types";
 import {
   Arg,
   Ctx,
@@ -11,6 +17,9 @@ import {
 } from "type-graphql";
 import argon2 from "argon2";
 import axios from "axios";
+import { Problem } from "../entities/Problem";
+import { getConnection } from "typeorm";
+import { Submission } from "../entities/Submission";
 
 @ObjectType()
 class FieldError {
@@ -129,26 +138,88 @@ export class UserResolver {
     return true;
   }
 
-  @Mutation(() => String)
-  async updateSubmissions(): Promise<string> {
+  @Mutation(() => [Problem], { nullable: true })
+  async syncUserProblems(
+    @Arg("targetHandle") targetHandle: string
+  ): Promise<Problem[] | undefined> {
+    const conn = getConnection();
+    let targetUser = await User.findOne({
+      where: { codeforcesHandle: targetHandle },
+      relations: ["problems"],
+    });
+    if (!targetUser) {
+      targetUser = new User();
+      targetUser.codeforcesHandle = targetHandle;
+      targetUser.email = "";
+      targetUser.password = "";
+      await conn.manager.save(targetUser);
+    } else {
+      await Problem.remove(targetUser.problems);
+    }
     const AxiosInstance = axios.create();
-    const url = "https://codeforces.com/api/user.status?handle=ashishgup";
-    let totalCount = 0;
-    let acceptedCount = 0;
+    const url = `https://codeforces.com/api/user.status?handle=${targetHandle}&count=100`;
+    const problemCollection: { [id: string]: ProblemData } = {};
     await AxiosInstance.get(url)
       .then((response) => {
-        totalCount = response.data.result.length;
         response.data.result.map((submission: CFSubmission) => {
-          if (submission.verdict === "OK") {
-            acceptedCount++;
-            // console.log(submission.problem);
+          const name = submission.problem.name;
+          if (!(name in problemCollection)) {
+            problemCollection[name] = {
+              rating: submission.problem.rating,
+              link: `/${submission.problem.contestId}/${submission.problem.index}`,
+              submissions: [
+                {
+                  id: submission.id,
+                  link: `/${submission.problem.contestId}/${submission.id}`,
+                  verdict: submission.verdict,
+                },
+              ],
+            };
           } else {
-            // console.log(submission.verdict);
+            if (submission.verdict)
+              problemCollection[name].submissions.push({
+                id: submission.id,
+                link: `/${submission.problem.contestId}/${submission.id}`,
+                verdict: submission.verdict,
+              });
           }
         });
       })
       .catch(console.error);
-    return `Total Submissions:  ${totalCount}, Accepted: ${acceptedCount}`;
+    console.log(problemCollection);
+    for (let [key, value] of Object.entries(problemCollection)) {
+      const newProblem = new Problem();
+      newProblem.user = targetUser;
+      newProblem.name = key;
+      newProblem.link = value.link;
+      newProblem.rating = value.rating;
+      await conn.manager.save(newProblem);
+      for (let submission of value.submissions) {
+        const newSubmission = new Submission();
+        newSubmission.id = submission.id;
+        newSubmission.link = submission.link;
+        newSubmission.problem = newProblem;
+        newSubmission.verdict = submission.verdict;
+        await conn.manager.save(newSubmission);
+      }
+    }
+    return undefined;
+  }
+
+  @Mutation(() => [Problem], { nullable: true })
+  async getUserProblems(
+    @Arg("targetHandle") targetHandle: string
+  ): Promise<Problem[] | undefined> {
+    const targetUser = await User.findOne({
+      where: { codeforcesHandle: targetHandle },
+    });
+    if (!targetUser) return undefined;
+    const problems = await Problem.find({
+      where: { user: targetUser },
+      relations: ["submissions"],
+    });
+    console.log(problems.length);
+    return problems;
   }
 
   @Query(() => [User])

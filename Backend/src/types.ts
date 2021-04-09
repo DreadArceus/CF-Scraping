@@ -24,11 +24,27 @@ export class RegisterInput {
   codeforcesHandle: string;
 }
 
+export type SubmissionData = {
+  id: number;
+  link: string;
+  verdict?: string;
+};
+
+export type ProblemData = {
+  rating?: number;
+  submissions: SubmissionData[];
+  link: string;
+};
+
 export type CFProblem = {
   contestId?: number;
+  name: string;
+  rating?: number;
+  index: string;
 };
 
 export type CFSubmission = {
+  id: number;
   problem: CFProblem;
   verdict?: verdictType;
 };
