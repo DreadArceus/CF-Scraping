@@ -174,6 +174,7 @@ export class UserResolver {
                   verdict: submission.verdict,
                 },
               ],
+              tags: submission.problem.tags,
             };
           } else {
             if (submission.verdict)
@@ -193,6 +194,7 @@ export class UserResolver {
       newProblem.name = key;
       newProblem.link = value.link;
       newProblem.rating = value.rating;
+      newProblem.tags = value.tags;
       await conn.manager.save(newProblem);
       for (let submission of value.submissions) {
         const newSubmission = new Submission();
@@ -203,7 +205,11 @@ export class UserResolver {
         await conn.manager.save(newSubmission);
       }
     }
-    return undefined;
+    const problems = await Problem.find({
+      where: { user: targetUser },
+      relations: ["submissions"],
+    });
+    return problems;
   }
 
   @Mutation(() => [Problem], { nullable: true })
@@ -218,7 +224,6 @@ export class UserResolver {
       where: { user: targetUser },
       relations: ["submissions"],
     });
-    console.log(problems.length);
     return problems;
   }
 

@@ -33,6 +33,7 @@ export type SubmissionData = {
 export type ProblemData = {
   rating?: number;
   submissions: SubmissionData[];
+  tags: string[];
   link: string;
 };
 
@@ -41,6 +42,7 @@ export type CFProblem = {
   name: string;
   rating?: number;
   index: string;
+  tags: string[];
 };
 
 export type CFSubmission = {

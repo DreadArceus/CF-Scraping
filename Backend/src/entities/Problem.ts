@@ -26,7 +26,9 @@ export class Problem extends BaseEntity {
   @ManyToOne(() => User, (user) => user.problems)
   user: User;
 
-  //tags
+  @Field(() => [String])
+  @Column({ type: "simple-array" })
+  tags: string[];
 
   //date
 
